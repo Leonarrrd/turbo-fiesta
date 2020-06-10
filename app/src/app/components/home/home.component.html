@@ -1,0 +1,43 @@
+<!-- <button (click)="buttonClick()">Click me!</button> -->
+
+<div class="container">
+  <div class="chat">
+    <ul id="messages">
+        <li *ngFor="let message of chatMessages">
+          {{ message }}
+        </li>
+    </ul>
+    <form #form1="ngForm" name="messageForm" (ngSubmit)="submitMessage(form1.value.msg)">
+      <input name="msg" type="text" ngModel>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="createAndJoin">
+    <div class="create">
+      <button (click)="createGame()" class="btn btn-success">Create New Room</button>
+    </div>
+    <div class="join">
+      <p>Enter room ID to join</p>
+      <form #form2="ngForm" name="idForm" (ngSubmit)="submitId(form2.value.id)">
+        <input name="id" type="text" ngModel>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="room">
+    <ng-template [ngIf]="gameId != null" [ngIfElse]="noRoom">
+      <p>Your room's ID: {{gameId}}</p>
+    <p>Participants:</p>
+    <ul id="participants">
+      <li *ngFor="let participant of gameParticipants">
+        {{ participant }}
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #noRoom>
+    <p>You havent joined any room yet.</p>
+</ng-template>
+    
+  </div>
+</div>

@@ -1,0 +1,19 @@
+1. Refactor socket logic to Services
+    -
+
+2. Make a common folder for classes such as game
+    - Also make the classes typescript
+    - Find a way to make the typescript classes work with node
+
+3. Refactor Elements of Home.Component to new Components
+    - Elements such as Chat
+    - Be careful not to make too tiny components
+
+4. Add Routing
+
+5. Add Styling
+
+6. Improve Resilience
+
+7. Improve UX
+    - For example: Get a popup for entering a name on pageload
