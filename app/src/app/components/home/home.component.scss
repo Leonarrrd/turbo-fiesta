@@ -21,65 +21,13 @@ body {
     flex: 1 100%;
 }
 
-.chat {
-    border-width: 5px;
-    background-color: pink;
-    display: flex;
-    flex-direction: column;
-    // text-align: left;
-}
 
-.createAndJoin {
-    background-color: brown;
-    display: flex;
-    flex-direction: column;
-}
-
-.createAndJoin > * {
-    flex: 1 100%;
-}
-
-.create {
-    background-color: goldenrod;
-    
-    button {
-        
-    }
-}
-
-.join {
-    background-color: coral;
-}
-
-.room {
-    background-color: cornflowerblue;
-}
 
 #inputContainer {
     
 }
 
-input {
-
+app-chat{
+    flex: 1 100;
 }
 
-button { 
-
-}
-
-
-#messages { 
-    list-style-type: none;
-    flex-grow: 1; 
-    margin: 0;
-    padding: 0;
-    margin-bottom: 40px
-}
-
-#messages li {
-    padding: 5px 10px;
-}
-
-#messages li:nth-child(odd) { 
-    background: #eee; 
-}

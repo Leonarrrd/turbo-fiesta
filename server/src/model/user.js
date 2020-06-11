@@ -9,7 +9,6 @@ class User
         this.id = id;
         this.name = "#" + id;
         this.socket = socket;
-
     }
 }
 

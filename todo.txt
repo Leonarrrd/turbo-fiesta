@@ -1,19 +1,21 @@
-1. Refactor socket logic to Services
-    -
-
-2. Make a common folder for classes such as game
-    - Also make the classes typescript
-    - Find a way to make the typescript classes work with node
-
-3. Refactor Elements of Home.Component to new Components
-    - Elements such as Chat
-    - Be careful not to make too tiny components
-
-4. Add Routing
-
-5. Add Styling
-
-6. Improve Resilience
+8. Refactor server logic
+    - Right now everything is still in app.js
 
 7. Improve UX
     - For example: Get a popup for entering a name on pageload
+
+6. Improve Resilience
+
+5. Add Styling
+
+4. Add Routing
+
+3̶.̶ R̶e̶f̶a̶c̶t̶o̶r̶ E̶l̶e̶m̶e̶n̶t̶s̶ o̶f̶ H̶o̶m̶e̶.̶C̶o̶m̶p̶o̶n̶e̶n̶t̶ t̶o̶ n̶e̶w̶ C̶o̶m̶p̶o̶n̶e̶n̶t̶s̶
+    -̶ E̶l̶e̶m̶e̶n̶t̶s̶ s̶u̶c̶h̶ a̶s̶ C̶h̶a̶t̶
+    -̶ B̶e̶ c̶a̶r̶e̶f̶u̶l̶ n̶o̶t̶ t̶o̶ m̶a̶k̶e̶ t̶o̶o̶ t̶i̶n̶y̶ c̶o̶m̶p̶o̶n̶e̶n̶t̶s̶
+
+2̶.̶ M̶a̶k̶e̶ a̶ c̶o̶m̶m̶o̶n̶ f̶o̶l̶d̶e̶r̶ f̶o̶r̶ c̶l̶a̶s̶s̶e̶s̶ s̶u̶c̶h̶ a̶s̶ g̶a̶m̶e̶
+    -̶ A̶l̶s̶o̶ m̶a̶k̶e̶ t̶h̶e̶ c̶l̶a̶s̶s̶e̶s̶ t̶y̶p̶e̶s̶c̶r̶i̶p̶t̶
+    -̶ F̶i̶n̶d̶ a̶ w̶a̶y̶ t̶o̶ m̶a̶k̶e̶ t̶h̶e̶ t̶y̶p̶e̶s̶c̶r̶i̶p̶t̶ c̶l̶a̶s̶s̶e̶s̶ w̶o̶r̶k̶ w̶i̶t̶h̶ n̶o̶d̶e̶
+
+1̶.̶ R̶e̶f̶a̶c̶t̶o̶r̶ s̶o̶c̶k̶e̶t̶ l̶o̶g̶i̶c̶ t̶o̶ S̶e̶r̶v̶i̶c̶e̶s̶

@@ -6,7 +6,8 @@ import { Socket } from 'ngx-socket-io';
 })
 export class SocketIoService {
 
-  
-
-  constructor(public socket: Socket) {}
+  socket: Socket;
+  constructor(private s: Socket) {
+    this.socket = s;
+  }
 }

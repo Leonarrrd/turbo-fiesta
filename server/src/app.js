@@ -3,21 +3,21 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
-var Game = require('./model/game.js').Game;
+var Room = require('./model/room.js');
 var Session = require('./model/session.js');
 var User = require('./model/user.js');
 app.use('/', express.static('public'));
 
-let userId = 1;
-let gameId = 1;
+let userIdCounter = 1;
+let roomIdCounter = 1;
 
 let session = new Session();
 
 io.on('connection', function(socket){
-  let user = new User(userId, socket);
+  let user = new User(userIdCounter, socket);
   session.addUser(user);
-  console.log("New Client with Id <" + userId + ">");
-  userId++;
+  console.log("New Client with Id <" + userIdCounter + ">");
+  userIdCounter++;
 
   socket.on('chatMessage', function(msg){
     console.log("New Message: " + msg);
@@ -25,48 +25,61 @@ io.on('connection', function(socket){
       case "!":
         user.name = msg.substring(1)
         socket.emit('chatUpdate', "Your name was changed to: <" + user.name + ">");
+        if (session.findRoomOfUser(user)){
+          sendUpdate(session.findRoomOfUser(user).id)
+        }
         break;
       default:
         io.emit('chatUpdate', user.name + ": " + msg);
     }
   });
 
-  socket.on('createGame', function() {
-      var game = session.findGameofUser(user);
-      if (game){
-        game.removeParticipant(user);
-        sendUpdate(game.id);
+  socket.on('createRoom', function() {
+      var room = session.findRoomOfUser(user);
+      if (room){
+        room.removeParticipant(user);
+        sendUpdate(room.id);
       } 
-      session.addGame(new Game(gameId, user));
-      socket.emit('assignGame', gameId);
-      console.log("New Game created with ID <" + gameId + ">");
-      gameId++;
+      session.addRoom(new Room(roomIdCounter, user));
+      socket.emit('assignRoom', roomIdCounter);
+      console.log("New Room created by User <" + user.name +"> with ID <" + roomIdCounter + ">");
+      roomIdCounter++;
   });
 
-  socket.on('joinGame', function(_gameId) {
-    let game = session.getGameById(_gameId);
-    if (game != null && !game.getParticipants().filter(e => e.id == user.id).length > 0) {
-      game.addParticipant(user);
-      socket.emit('assignGame', _gameId);
-      console.log("User " + user.name + " entered the Game with ID " + "<" + _gameId + ">");
+  socket.on('joinRoom', function(roomId) {
+    let room = session.getRoomById(roomId);
+    if (room != null && !room.getParticipants().filter(e => e.id == user.id).length > 0) {
+      room.addParticipant(user);
+      socket.emit('assignRoom', roomId);
+      console.log("User <" + user.name + "> entered the Room with ID " + "<" + roomId + ">");
     }
 });
 
-  socket.on('requireGameUpdate', function(_gameId) {
-    sendUpdate(_gameId)
+  socket.on('requireRoomUpdate', function(Room) {
+    sendUpdate(Room);
   });
 
-  function sendUpdate(_gameId){
-    let game = session.getGameById(_gameId);
-    let participantsCopy = [];
-    game.participants.forEach(function(participant) {
-      participantsCopy.push(participant.name);
-    });
-    game.participants.forEach(function(participant) {
-      participant.socket.emit('gameUpdate', participantsCopy);
+  function sendUpdate(roomId){
+    // if we try to send room.participants over the socket, the server will crash, hence we make a shallow copy
+    // here we want to send over a room object/json in the future
+    let room = session.getRoomById(roomId);
+    let processedRoom = getProcessedRoomCopy(room);
+    room.participants.forEach(function(participant) {
+      participant.socket.emit('roomUpdate', processedRoom);
     });
   }
 });
+
+function getProcessedRoomCopy(room){
+  let processedRoom = {};
+  let participants = [];
+  room.participants.forEach(function(participant) {
+    participants.push(participant.name);
+  });
+  processedRoom.participants = participants;
+  processedRoom.creator = room.creator.name;
+  return processedRoom;
+}
 
 http.listen(port, function(){
   console.log('listening on *:' + port);

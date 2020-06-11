@@ -1,0 +1,14 @@
+<div class="lobby">
+    <ng-template [ngIf]="room.id != null" [ngIfElse]="noRoom">
+      <p>Your room's ID: {{room.id}}</p>
+    <p>Participants:</p>
+    <ul id="participants">
+      <li *ngFor="let participant of room.participants">
+        {{ participant }}
+      </li>
+    </ul>
+    </ng-template>
+    <ng-template #noRoom>
+      <p>You havent joined any room yet.</p>
+    </ng-template>
+</div>

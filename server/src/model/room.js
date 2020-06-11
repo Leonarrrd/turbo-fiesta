@@ -1,7 +1,7 @@
-class Game {
+class Room {
     id;
     creator;
-    participants = []
+    participants = [];
 
     constructor(id, creator){
         this.id = id;
@@ -14,10 +14,7 @@ class Game {
     }
 
     removeParticipant(user){
-        console.log(this.participants.length)
-        // this.participants.filter(participant => participant.id == user.id);
         this.participants.splice(this.participants.indexOf(user),1);
-        console.log(this.participants.length)
     }
 
     getParticipants(){
@@ -25,4 +22,4 @@ class Game {
     }
 }
 
-module.exports = {Game : Game}
+module.exports = Room;

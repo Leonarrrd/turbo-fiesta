@@ -1,0 +1,27 @@
+.createAndJoin {
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.create {
+    margin-bottom: 50px;
+}
+
+.join {
+    margin-top: 40px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+// .flex-center { 
+    // align-items: center; 
+    // justify-content: center; 
+    // flex-direction: 
+    // column; 
+// } 

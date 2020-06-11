@@ -2,7 +2,7 @@ class Session
 {
     // games: Game[];
     // users: User[]
-    games = [];
+    rooms = [];
     users = [];
 
     constructor(){
@@ -17,35 +17,38 @@ class Session
         this.users.push(user);
     }
 
-    getGames() {
-        return this.games;
+    addRoom(room){
+        this.rooms.push(room);
     }
 
-    getGameById(gameId){
-        let foundGame;
-        this.games.forEach(function(game){
-            if (game.id == gameId){
-                foundGame = game;
+    getRooms() {
+        return this.rooms;
+    }
+
+    getRoomById(roomId){
+        let foundRoom;
+        this.rooms.forEach(function(room){
+            if (room.id == roomId){
+                foundRoom = room;
+                room.id;
             }
         });
-        return foundGame;
+        return foundRoom;
     }
 
-    findGameofUser(user){
-        let foundGame;
-        this.games.forEach(function(game){
-            game.participants.forEach(function(participant){
+    findRoomOfUser(user){
+        let foundRoom;
+        this.rooms.forEach(function(room){
+            room.participants.forEach(function(participant){
                 if (participant.id == user.id) {
-                    foundGame = game;
+                    foundRoom = room;
                 }
             })
         });
-        return foundGame;
+        return foundRoom;
     }
 
-    addGame(game){
-        this.games.push(game)
-    }
+    
 }
 
 module.exports = Session;

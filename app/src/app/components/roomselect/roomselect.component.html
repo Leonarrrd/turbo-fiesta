@@ -1,0 +1,13 @@
+<div class="createAndJoin">
+    <div class="create">
+      <button (click)="createRoom()" class="btn btn-success">Create New Room</button>
+    </div>
+    <p>OR</p>
+    <div class="join">
+      <p>Enter room ID to join</p>
+      <form #form2="ngForm" name="idForm" (ngSubmit)="submitId(form2.value.id)">
+        <input name="id" type="text" ngModel>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+    </div>
+</div>
