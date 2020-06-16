@@ -1,0 +1,13 @@
+<div class="container" [style.background-color]="team === 'red' ? 'lightcoral' : 'lightblue'">
+        <ng-template [ngIf]="activeWord" [ngIfElse]="noWord">
+            <span>{{activeWord}}</span>
+            <div class="container">
+                <button class="btn btn-success" (click)="correctGuess()">✓</button>
+                <button class="btn btn-danger" (click)="wrongGuess()">X</button>
+            </div>
+            <p> Remaining Time: {{countdown}}</p>
+        </ng-template>
+        <ng-template #noWord>
+            <button class="btn btn-info" (click)="startTurn()">Start!</button>
+        </ng-template>
+</div>

@@ -1,0 +1,8 @@
+<div class="container" [style.background-color]="team === 'red' ? 'lightcoral' : 'lightblue'">
+    <p> Team Blue points: {{room.game.teamBluePoints}}</p>
+    <p> Team Red points: {{room.game.teamRedPoints}}</p>
+    <p> Remaining Cards: {{room.game.remainingWordsThisRound}}/{{room.game.wordPoolSize}}</p>
+    <p> Clue Giver: {{room.game.activePlayer}}</p>
+    <p> Current Phase: {{room.game.phase}}</p>
+    <p> Remaining Time: {{countdown}}</p>
+</div>

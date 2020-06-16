@@ -1,0 +1,20 @@
+<div class="container" [style.background-color]="team === 'red' ? 'lightcoral' : 'lightblue'">
+    <p>Come up with 3 words</p>
+    <ng-template [ngIf]="submittedWords.length !== 0" [ngIfElse]="noWords">
+      <ul id="wordsList">
+        <li *ngFor="let word of submittedWords">
+          <p>{{ word }}</p>
+          <button class="btn btn-info" (click)="deleteWord(word)">Delete</button>
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #noWords>
+      <p>Add some words!</p>
+    </ng-template>
+    <form #form="ngForm" name="wordForm" (ngSubmit)="submitWord(form)">
+        <input name="word" type="text" ngModel>
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+    <p>{{countdown}}</p>
+</div>
+

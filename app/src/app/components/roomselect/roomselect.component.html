@@ -5,7 +5,7 @@
     <p>OR</p>
     <div class="join">
       <p>Enter room ID to join</p>
-      <form #form2="ngForm" name="idForm" (ngSubmit)="submitId(form2.value.id)">
+      <form #form="ngForm" name="idForm" (ngSubmit)="submitId(form.value.id)">
         <input name="id" type="text" ngModel>
         <button type="submit" class="btn btn-info">Submit</button>
       </form>

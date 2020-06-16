@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomService } from 'src/app/services/room.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lobby',
@@ -8,7 +9,7 @@ import { RoomService } from 'src/app/services/room.service';
 })
 export class LobbyComponent implements OnInit {
 
-  constructor(private roomService: RoomService) { }
+  constructor(private roomService: RoomService, private router: Router) { }
 
   get room(){
     return this.roomService.room;
@@ -17,4 +18,7 @@ export class LobbyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  startGame(){
+    this.roomService.startGame();
+  }
 }

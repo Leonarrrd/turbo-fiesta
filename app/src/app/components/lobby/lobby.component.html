@@ -1,12 +1,13 @@
 <div class="lobby">
-    <ng-template [ngIf]="room.id != null" [ngIfElse]="noRoom">
+    <ng-template [ngIf]="room" [ngIfElse]="noRoom">
       <p>Your room's ID: {{room.id}}</p>
-    <p>Participants:</p>
-    <ul id="participants">
-      <li *ngFor="let participant of room.participants">
-        {{ participant }}
-      </li>
-    </ul>
+      <p>Participants:</p>
+      <ul id="participants">
+        <li *ngFor="let participant of room.participants">
+          {{ participant }}
+        </li>
+      </ul>
+      <button class="btn btn-info" (click)="startGame()">Start Game</button>
     </ng-template>
     <ng-template #noRoom>
       <p>You havent joined any room yet.</p>

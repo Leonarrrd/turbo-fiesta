@@ -1,12 +1,15 @@
+const AlextivityGame = require("./AlextivityGame");
+
 class Room {
     id;
     creator;
     participants = [];
+    game;
 
     constructor(id, creator){
         this.id = id;
         this.creator = creator;
-        this.participants.push(creator);
+        this.addParticipant(creator);
     }
 
     addParticipant(user){
@@ -19,6 +22,11 @@ class Room {
 
     getParticipants(){
         return this.participants;
+    }
+
+    startNewAlextivityGame(){
+        this.game = new AlextivityGame();
+        this.game.assignTeams(this.participants);
     }
 }
 

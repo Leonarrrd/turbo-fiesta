@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from './services/chat.service';
 import { RoomService } from './services/room.service';
+import { AlextivityService } from './services/alextivity.service';
+import { SocketInService } from './services/socket-in.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,9 @@ import { RoomService } from './services/room.service';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  constructor(private chatService: ChatService, private roomService : RoomService){}
+  constructor(private socketInService: SocketInService){}
 
-  ngOnInit(){
-    this.chatService.init();
-    this.roomService.init();
+  ngOnInit() {
+    this.socketInService.init();
   }
 }

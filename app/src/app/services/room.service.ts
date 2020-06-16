@@ -1,42 +1,56 @@
 import { Injectable } from '@angular/core';
-import { SocketIoService } from './socket-io.service';
+import { SocketOutService } from './socket-out.service';
 import { Room } from '../model/room';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RoomService {
   room: Room = new Room();
+  roomChange: Subject<Room> = new Subject<Room>();
+  team: string;
+  isMyTurn: boolean = false;
 
-  get socket() {
-    return this.socketService.socket;
+  constructor(private socketOutService: SocketOutService) {}
+
+  yourTurn(){
+    this.isMyTurn = true;
   }
 
-  constructor(private socketService: SocketIoService) { }
-
-  init(): void {
-    const self = this;
-    this.socket.on('assignRoom', (roomId: number) => {
-      self.room.id = roomId;
-      this.socket.emit('requireRoomUpdate', roomId);
-    });
-
-    this.socket.on('roomUpdate', (room: Room) => {
-      self.room.creator = room.creator;
-      self.room.participants = room.participants;
-    });
+  notYourTurn(){
+    this.isMyTurn = false;
   }
 
-  submitId(id: number): void {
-    this.socket.emit('joinRoom', id);
+  assignTeam(teamColor: string){
+    this.team = teamColor;
+  }
+
+  roomUpdate(room: Room){
+      this.room = room;
+      this.roomChange.next(this.room);
+  }
+
+  assignRoom(roomId: number) {
+      this.room.id = roomId;
+      this.requireUpdate();
+  }
+
+  submitId(roomId: number): void {
+    this.socketOutService.joinRoom(roomId);
   }
 
   createRoom(): void {
-    this.socket.emit('createRoom');
+    this.socketOutService.createRoom();
+  }
+
+  startGame(): void {
+    this.socketOutService.startPhaseSubmitWords();
   }
 
   requireUpdate(): void {
-    this.socket.emit('requireRoomUpdate', this.room.id);
+    this.socketOutService.requireRoomUpdate(this.room.id);
   }
 }

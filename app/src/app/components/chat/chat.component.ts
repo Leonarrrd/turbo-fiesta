@@ -8,8 +8,6 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class ChatComponent implements OnInit {
 
-  messageInput: string = '';
-
   get chatMessages(){
     return this.chatService.chatMessages;
   }
@@ -21,7 +19,6 @@ export class ChatComponent implements OnInit {
 
   submitMessage(form: any): void {
     this.chatService.submitMessage(form);
-    this.messageInput = '';
     form.reset();
   }
 

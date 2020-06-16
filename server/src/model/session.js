@@ -1,7 +1,12 @@
+var Room = require('./Room.js');
+const AlextivityGame = require("./AlextivityGame");
+const User = require('./user.js');
+
+
 class Session
-{
-    // games: Game[];
-    // users: User[]
+{   
+    roomIdCounter = 1;
+    userIdCounter = 1;
     rooms = [];
     users = [];
 
@@ -25,7 +30,7 @@ class Session
         return this.rooms;
     }
 
-    getRoomById(roomId){
+    findRoomById(roomId){
         let foundRoom;
         this.rooms.forEach(function(room){
             if (room.id == roomId){

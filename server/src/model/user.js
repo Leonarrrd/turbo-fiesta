@@ -3,6 +3,9 @@ class User
     id;
     socket;
     name;
+    room;
+    submittedWords;
+    team;
 
     constructor(id, socket){
         this.type = "User";

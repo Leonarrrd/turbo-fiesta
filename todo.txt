@@ -1,14 +1,25 @@
-8. Refactor server logic
-    - Right now everything is still in app.js
+13. Find better concept for Routing than using HomeComponent
+    - Maybe implement routing as a service? => RoutingService
+
+12. Clear up Responsibilities between AlextivityService and RoomService
+
+1̶1̶.̶ I̶m̶p̶l̶e̶m̶e̶n̶t̶ e̶n̶u̶m̶ f̶o̶r̶ e̶v̶e̶n̶t̶s̶
+
+1̶0̶.̶ R̶e̶f̶a̶c̶t̶o̶r̶ C̶l̶i̶e̶n̶t̶ I̶O̶ H̶a̶n̶d̶l̶i̶n̶g̶
+
+9̶.̶ R̶e̶f̶a̶c̶t̶o̶r̶ S̶e̶r̶v̶e̶r̶ I̶O̶-̶H̶a̶n̶d̶l̶i̶n̶g̶
+
+8̶.̶ R̶e̶f̶a̶c̶t̶o̶r̶ s̶e̶r̶v̶e̶r̶ l̶o̶g̶i̶c̶
+    -̶ R̶i̶g̶h̶t̶ n̶o̶w̶ e̶v̶e̶r̶y̶t̶h̶i̶n̶g̶ i̶s̶ s̶t̶i̶l̶l̶ i̶n̶ a̶p̶p̶.̶j̶s̶
 
 7. Improve UX
     - For example: Get a popup for entering a name on pageload
 
 6. Improve Resilience
 
-5. Add Styling
+5̶.̶ A̶d̶d̶ S̶t̶y̶l̶i̶n̶g̶
 
-4. Add Routing
+4̶.̶ A̶d̶d̶ R̶o̶u̶t̶i̶n̶g̶
 
 3̶.̶ R̶e̶f̶a̶c̶t̶o̶r̶ E̶l̶e̶m̶e̶n̶t̶s̶ o̶f̶ H̶o̶m̶e̶.̶C̶o̶m̶p̶o̶n̶e̶n̶t̶ t̶o̶ n̶e̶w̶ C̶o̶m̶p̶o̶n̶e̶n̶t̶s̶
     -̶ E̶l̶e̶m̶e̶n̶t̶s̶ s̶u̶c̶h̶ a̶s̶ C̶h̶a̶t̶
