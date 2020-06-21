@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import * as events from '../enum/events';
+import * as events from '../../../../common/constants/events';
 import { ChatService } from './chat.service';
 import { RoomService } from './room.service';
 import { AlextivityService } from './alextivity.service';
 import { Room } from './../model/Room';
-import { ASSIGNTEAM } from '../enum/events';
 
 @Injectable({
   providedIn: 'root'
@@ -33,16 +32,15 @@ export class SocketInService {
     });
 
     this.socket.on(events.ASSIGNTEAM, (teamColor: string) => {
-      this.roomService.assignTeam(teamColor);
+      this.alextivityService.assignTeam(teamColor);
     });
 
     this.socket.on(events.YOURTURN, () => {
-      this.roomService.yourTurn();
       this.alextivityService.yourTurn();
     });
 
     this.socket.on(events.NOTYOURTURN, () => {
-      this.roomService.notYourTurn();
+      this.alextivityService.notYourTurn();
     });
 
     this.socket.on(events.ROOMUPDATE, (room: Room) => {

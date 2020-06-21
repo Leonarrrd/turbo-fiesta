@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import * as events from '../enum/events';
+import * as events from '../../../../common/constants/events';
+
 
 @Injectable({
   providedIn: 'root'

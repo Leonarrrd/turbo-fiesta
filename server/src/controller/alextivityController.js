@@ -1,11 +1,7 @@
 const AlextivityGame = require('../model/AlextivityGame');
 const ioController = require('./ioController');
 const roomController = require('./roomController');
-
-const config = {
-    submitWordsTime: 5,
-    turnTime: 10,
-}
+const config = require('../../../common/constants/config');
 
 let timeout;
 
@@ -24,7 +20,7 @@ module.exports = {
 
         setTimeout(()=>{
             startPhase(room, 'explain');
-        }, config.submitWordsTime * 1000 + 1000);
+        }, config.submitWordsTime * 1000 + 100);
     },
 
     submittedWords: (user, words) => {

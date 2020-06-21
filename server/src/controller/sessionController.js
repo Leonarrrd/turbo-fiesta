@@ -11,7 +11,6 @@ module.exports = {
         let user = new User(session.userIdCounter, socket);
         session.userIdCounter++;
         session.addUser(user);
-        //TODO ALEXTIVITY INIT
         return user;
     },
 

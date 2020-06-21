@@ -9,10 +9,10 @@ import { RoomService } from 'src/app/services/room.service';
 })
 export class ClueGivingComponent implements OnInit {
 
-  constructor(private alextivityService: AlextivityService, private roomService: RoomService) { }
+  constructor(private alextivityService: AlextivityService) { }
 
   get team(){
-    return this.roomService.team;
+    return this.alextivityService.team;
   }
 
   get activeWord() {

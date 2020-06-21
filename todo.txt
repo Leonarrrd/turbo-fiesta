@@ -1,7 +1,7 @@
-13. Find better concept for Routing than using HomeComponent
-    - Maybe implement routing as a service? => RoutingService
+1̶3̶.̶ F̶i̶n̶d̶ b̶e̶t̶t̶e̶r̶ c̶o̶n̶c̶e̶p̶t̶ f̶o̶r̶ R̶o̶u̶t̶i̶n̶g̶ t̶h̶a̶n̶ u̶s̶i̶n̶g̶ H̶o̶m̶e̶C̶o̶m̶p̶o̶n̶e̶n̶t̶
+    -̶ M̶a̶y̶b̶e̶ i̶m̶p̶l̶e̶m̶e̶n̶t̶ r̶o̶u̶t̶i̶n̶g̶ a̶s̶ a̶ s̶e̶r̶v̶i̶c̶e̶?̶ =̶>̶ R̶o̶u̶t̶i̶n̶g̶S̶e̶r̶v̶i̶c̶e̶
 
-12. Clear up Responsibilities between AlextivityService and RoomService
+1̶2̶.̶ C̶l̶e̶a̶r̶ u̶p̶ R̶e̶s̶p̶o̶n̶s̶i̶b̶i̶l̶i̶t̶i̶e̶s̶ b̶e̶t̶w̶e̶e̶n̶ A̶l̶e̶x̶t̶i̶v̶i̶t̶y̶S̶e̶r̶v̶i̶c̶e̶ a̶n̶d̶ R̶o̶o̶m̶S̶e̶r̶v̶i̶c̶e̶
 
 1̶1̶.̶ I̶m̶p̶l̶e̶m̶e̶n̶t̶ e̶n̶u̶m̶ f̶o̶r̶ e̶v̶e̶n̶t̶s̶
 

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+// Variable Overrides 
+$theme-colors: (
+  "primary": #373854,
+  "warning": #373854
+);
+
+$body-bg: #000000;
+
+// Bootstrap Sass Imports
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+.container-fluid {
+  background-color: #F8E0DF !important;
+}
+
+* {
+  font-family: 'Play', sans-serif !important;
+}
+
+h1 {
+  font-size: 8vh;
+}
+
+label {
+  font-size: 4vh;
+}
+
+input[type=text] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #000000;
+  width: 100%;
+}
+
+button {
+  // border-bottom: 10px solid #373854 !important;
+  height: 15vh;
+  width: 60vw;
+  p {
+    font-size: 6vh;
+  }
+}
+
+* {
+  border-radius: 0 !important;
+}

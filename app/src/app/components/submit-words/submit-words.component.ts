@@ -12,10 +12,10 @@ export class SubmitWordsComponent implements OnInit {
 
   wordInput: string = '';
 
-  constructor(private roomService: RoomService, private alextivityService: AlextivityService, private router: Router) { }
+  constructor(private alextivityService: AlextivityService) { }
 
   get team(){
-    return this.roomService.team;
+    return this.alextivityService.team;
   }
 
   get submittedWords(){

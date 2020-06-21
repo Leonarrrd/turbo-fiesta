@@ -1,4 +1,4 @@
-const events = require('../enum/events');
+const events = require('../../../common/constants/events');
 var _io;
 
 module.exports = {

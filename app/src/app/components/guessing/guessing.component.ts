@@ -9,14 +9,14 @@ import { AlextivityService } from 'src/app/services/alextivity.service';
 })
 export class GuessingComponent implements OnInit {
 
-  constructor(private roomService: RoomService, private alextivityService : AlextivityService) { }
+  constructor(private roomService: RoomService, private alextivityService: AlextivityService) { }
 
   get room(){
     return this.roomService.room;
   }
 
   get team(){
-    return this.roomService.team;
+    return this.alextivityService.team;
   }
 
   get countdown(){

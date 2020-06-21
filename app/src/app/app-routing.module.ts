@@ -7,9 +7,11 @@ import { SubmitWordsComponent } from './components/submit-words/submit-words.com
 import { GuessingComponent } from './components/guessing/guessing.component';
 import { ClueGivingComponent } from './components/clue-giving/clue-giving.component';
 import { ResultsComponent } from './components/results/results.component';
+import { HomeNEWComponent } from './components/home-new/home-new.component';
 
 
 const routes: Routes = [
+  // { path: '', component: HomeNEWComponent },
   { path: '', component: HomeComponent },
   { path: 'lobby', component: LobbyComponent },
   { path: 'submitWords', component: SubmitWordsComponent },

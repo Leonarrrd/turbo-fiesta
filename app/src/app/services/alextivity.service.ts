@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RoomService } from './room.service';
 import { SocketOutService } from './socket-out.service';
+import * as config from './../../../../common/constants/config';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class AlextivityService {
   submittedWords: string[];
   countdown: number;
   activeWord: string;
+  team: string;
+  isMyTurn: boolean = false;
   private timeouts: any[] = [];
 
   constructor(private roomService: RoomService, private socketOutService: SocketOutService) { }
@@ -18,9 +21,18 @@ export class AlextivityService {
     return this.roomService.room;
   }
 
+  assignTeam(teamColor: string){
+    this.team = teamColor;
+  }
+
+  notYourTurn(){
+    this.isMyTurn = false;
+  }
+
   // TODO: weird fix
   yourTurn() {
     this.activeWord = undefined;
+    this.isMyTurn = true;
   }
 
   newWord(word: string) {
@@ -61,7 +73,7 @@ export class AlextivityService {
 
   startSubmitWords(){
     this.submittedWords = [];
-    this.startCountdown(1);
+    this.startCountdown(config.submitWordsTime);
   }
 
   startCountdown(seconds: number){
